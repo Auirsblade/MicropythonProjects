@@ -1,23 +1,23 @@
 import machine, neopixel, time
 
 LED_PIN = 29          # LED strip data
-NUM_LEDS = 207        # change to your strip length
+NUM_LEDS = 214        # change to your strip length
 DEFAULT_BRIGHTNESS = 0.05    # keep small while on USB only (e.g., 0.02–0.1)
 
 np = neopixel.NeoPixel(machine.Pin(LED_PIN, machine.Pin.OUT), NUM_LEDS)
 
 # LED Segments
 N = 6
-SEGMENT_LENGTH = NUM_LEDS // N
-FULL_STRIP = range(NUM_LEDS)
 
-# Build segments as integer slices; last one includes remainder (if any)
-SEGMENTS = {}
-for i in range(N):
-    start = i * SEGMENT_LENGTH
-    # Last segment uses NUM_LEDS to include remainder; others use (i+1)*SEGMENT_LENGTH
-    stop = NUM_LEDS if i == N - 1 else (i + 1) * SEGMENT_LENGTH
-    SEGMENTS[i + 1] = FULL_STRIP[start:stop]
+# Hardcoded LED index ranges for each player/segment
+SEGMENTS = {
+    1: range(178, 214),   # 35 LEDs
+    2: range(0, 35),      # 35 LEDs
+    3: range(35, 71),     # 36 LEDs
+    4: range(71, 107),    # 36 LEDs
+    5: range(107, 142),   # 36 LEDs
+    6: range(142, 178),   # 36 LEDs
+}
 
 def scale(c, brightness):
     # c is (r,g,b) 0-255; apply software brightness
