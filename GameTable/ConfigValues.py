@@ -7,18 +7,18 @@ class ConfigStatus:
 
 # These buttons are RGB, but the LED controller uses GRB
 class Color:
-    """Color constants in GRB format."""
-    GREEN = (255, 0, 0)
-    RED = (0, 255, 0)
+    """Color constants in RGB format (GRB conversion handled by LedController)."""
+    GREEN = (0, 255, 0)
+    RED = (255, 0, 0)
     BLUE = (0, 0, 255)
     YELLOW = (255, 255, 0)
     WHITE = (255, 255, 255)
-    PURPLE = (0, 128, 128)
-    ORANGE = (165, 255, 0)
-    PINK = (192, 255, 203)
-    TEAL = (128, 0, 128)
-    AQUA = (255, 0, 255)
-    MAGENTA = (0, 255, 255)
+    PURPLE = (128, 0, 128)
+    ORANGE = (255, 165, 0)
+    PINK = (255, 192, 203)
+    TEAL = (0, 128, 128)
+    AQUA = (0, 255, 255)
+    MAGENTA = (255, 0, 255)
 
     @classmethod
     def all(cls):
